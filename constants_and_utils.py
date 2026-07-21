@@ -155,13 +155,13 @@ def get_llm_response(model, messages, savename=None, temp=DEFAULT_TEMPERATURE, v
     """
     Call OpenAI API, check for finish reason; if all looks good, return response.
     """
-    if 'ollama' in model.lower():  
-        # Ollama - get rid of the prefix  
-        actual_model = model.replace('ollama/', '')  
-        client = OpenAI(  
-            base_url="http://localhost:11434/v1",  
-            api_key="ollama"  
-        )  
+    if 'ollama' in model.lower():
+        # Ollama - get rid of the prefix
+        actual_model = model.replace('ollama/', '')
+        client = OpenAI(
+            base_url=os.environ.get('OLLAMA_BASE_URL', 'http://localhost:11434/v1'),
+            api_key="ollama"
+        )
         model = actual_model
     elif 'gpt' in model:  
         client = OpenAI(api_key=openai_key)  
