@@ -13,6 +13,38 @@ NAMES_TEMPERATURE = 1.2
 PATH_TO_DEMOGRAPHC_DATA = './us_demographics'
 RACES = ['White', 'Black', 'American Indian/Alaska Native', 'Asian', 'Native Hawaiian/Pacific Islander', 'Hispanic']
 GENDERS = ['Man', 'Woman', 'Nonbinary']
+
+# Chinese translations for the sequential-network prompt experiment (--lang zh)
+ZH_FIELD_NAMES = {
+    'name': '姓名', 'gender': '性别', 'age': '年龄', 'race/ethnicity': '种族/民族',
+    'religion': '宗教', 'political affiliation': '政党', 'interests': '兴趣',
+}
+ZH_DEMO_VALUES = {
+    'gender': {'Man': '男性', 'Woman': '女性', 'Nonbinary': '非二元性别'},
+    'race/ethnicity': {
+        'White': '白人', 'Black': '黑人', 'Hispanic': '拉丁裔', 'Asian': '亚裔',
+        'American Indian/Alaska Native': '美洲原住民/阿拉斯加原住民',
+        'Native Hawaiian/Pacific Islander': '夏威夷原住民/太平洋岛民',
+    },
+    'religion': {'Protestant': '新教徒', 'Catholic': '天主教徒', 'Unreligious': '无宗教信仰'},
+    'political affiliation': {'Democrat': '民主党', 'Republican': '共和党'},
+}
+
+# Japanese translations for the sequential-network prompt experiment (--lang ja)
+JA_FIELD_NAMES = {
+    'name': '名前', 'gender': '性別', 'age': '年齢', 'race/ethnicity': '人種/民族',
+    'religion': '宗教', 'political affiliation': '支持政党', 'interests': '興味',
+}
+JA_DEMO_VALUES = {
+    'gender': {'Man': '男性', 'Woman': '女性', 'Nonbinary': 'ノンバイナリー'},
+    'race/ethnicity': {
+        'White': '白人', 'Black': '黒人', 'Hispanic': 'ヒスパニック系', 'Asian': 'アジア系',
+        'American Indian/Alaska Native': 'アメリカ先住民/アラスカ先住民',
+        'Native Hawaiian/Pacific Islander': 'ハワイ先住民/太平洋諸島系',
+    },
+    'religion': {'Protestant': 'プロテスタント', 'Catholic': 'カトリック', 'Unreligious': '無宗教'},
+    'political affiliation': {'Democrat': '民主党支持者', 'Republican': '共和党支持者'},
+}
 """
 GENERATING PERSONAS PROGRAMMATICALLY
 """
@@ -191,10 +223,44 @@ def generate_persona(seed, sorted_triplets, cdf):
     return person
 
 
-def convert_persona_to_string(persona, demos_to_include, pid=None):
+def convert_persona_to_string(persona, demos_to_include, pid=None, lang='en'):
     """
     Convert pid (an int) and persona (a dictionary) into a string.
     """
+    if lang == 'zh':
+        s = '' if pid is None else f'{pid}. '
+        if 'name' in demos_to_include:
+            name = ' '.join(persona['name'])
+            s += f'{name} - '
+        for pos, demo in enumerate(demos_to_include):
+            if demo != 'name':
+                value = ZH_DEMO_VALUES.get(demo, {}).get(persona[demo], persona[demo])
+                if demo == 'age':
+                    s += f'{value}岁，'
+                elif demo == 'interests' and pos > 0:  # not first demo
+                    s += f'兴趣包括：{value}，'
+                else:
+                    s += f'{value}，'
+        s = s[:-1]  # remove trailing '，'
+        return s
+
+    if lang == 'ja':
+        s = '' if pid is None else f'{pid}. '
+        if 'name' in demos_to_include:
+            name = ' '.join(persona['name'])
+            s += f'{name} - '
+        for pos, demo in enumerate(demos_to_include):
+            if demo != 'name':
+                value = JA_DEMO_VALUES.get(demo, {}).get(persona[demo], persona[demo])
+                if demo == 'age':
+                    s += f'{value}歳、'
+                elif demo == 'interests' and pos > 0:  # not first demo
+                    s += f'興味：{value}、'
+                else:
+                    s += f'{value}、'
+        s = s[:-1]  # remove trailing '、'
+        return s
+
     if pid is None:
         s = ''
     else:
@@ -211,13 +277,31 @@ def convert_persona_to_string(persona, demos_to_include, pid=None):
             else:
                 s += f'{persona[demo]}, '
     s = s[:-2]  # remove trailing ', '
-    return s  
+    return s
 
 
-def assign_persona_to_model(persona, demos_to_include):
+def assign_persona_to_model(persona, demos_to_include, lang='en'):
     """
     Describe persona in second person: "You are..."
     """
+    if lang == 'zh':
+        persona_str = convert_persona_to_string(persona, demos_to_include, lang='zh')
+        if 'name' in demos_to_include:
+            return f'你是{persona_str}'
+        first_demo = demos_to_include[0]
+        if first_demo == 'interests':
+            return f'你对{persona_str}感兴趣'
+        return f'你是{persona_str}'
+
+    if lang == 'ja':
+        persona_str = convert_persona_to_string(persona, demos_to_include, lang='ja')
+        if 'name' in demos_to_include:
+            return f'あなたは{persona_str}です'
+        first_demo = demos_to_include[0]
+        if first_demo == 'interests':
+            return f'あなたは{persona_str}に興味があります'
+        return f'あなたは{persona_str}です'
+
     s = 'You are '
     persona_str = convert_persona_to_string(persona, demos_to_include)
     if 'name' in demos_to_include:
@@ -228,7 +312,7 @@ def assign_persona_to_model(persona, demos_to_include):
             article = 'an' if persona[first_demo].lower()[0] in ['a', 'e', 'i', 'o', 'u'] else 'a'
             s += article + ' ' + persona_str
         elif first_demo in ['race/ethnicity', 'age', 'religion']:  # adjective
-            s += persona_str 
+            s += persona_str
         else:
             assert first_demo == 'interests'
             s += 'interested in ' + persona_str
