@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from openai import OpenAI
+import urllib.request
 import random
 import json
 from PIL import Image
@@ -151,28 +152,52 @@ def draw_list_of_networks(list_of_G, network_name):
 ##########################################
 # functions to interact with LLMs
 ##########################################
-def get_llm_response(model, messages, savename=None, temp=DEFAULT_TEMPERATURE, verbose=False):
+def get_llm_response(model, messages, savename=None, temp=DEFAULT_TEMPERATURE, verbose=False, think=False):
     """
     Call OpenAI API, check for finish reason; if all looks good, return response.
     """
     if 'ollama' in model.lower():
-        # Ollama - get rid of the prefix
+        # Ollama - get rid of the prefix. Use the native /api/chat endpoint rather
+        # than the OpenAI-compat /v1 endpoint: thinking models like qwen3.5 ignore
+        # "think": false on /v1/chat/completions (still emit huge reasoning traces,
+        # ~500s/call), but /api/chat honors it and disables reasoning entirely.
         actual_model = model.replace('ollama/', '')
-        client = OpenAI(
-            base_url=os.environ.get('OLLAMA_BASE_URL', 'http://localhost:11434/v1'),
-            api_key="ollama"
+        base_url = os.environ.get('OLLAMA_BASE_URL', 'http://localhost:11434/v1')
+        base_url = base_url[:-len('/v1')] if base_url.endswith('/v1') else base_url
+        payload = json.dumps({
+            "model": actual_model,
+            "messages": messages,
+            "think": think,
+            "stream": False,
+            "options": {"temperature": temp},
+        }).encode('utf-8')
+        req = urllib.request.Request(
+            f'{base_url}/api/chat',
+            data=payload,
+            headers={'Content-Type': 'application/json'},
         )
-        model = actual_model
-    elif 'gpt' in model:  
-        client = OpenAI(api_key=openai_key)  
+        with urllib.request.urlopen(req) as resp_obj:
+            data_resp = json.loads(resp_obj.read().decode('utf-8'))
+        content = data_resp['message']['content']
+        finish_reason = data_resp.get('done_reason', 'stop') if data_resp.get('done') else 'incomplete'
+        prompt_tokens = data_resp.get('prompt_eval_count', 0)
+        completion_tokens = data_resp.get('eval_count', 0)
     else:
-        client = OpenAI(api_key=llama_key, base_url = "https://api.llama-api.com")
- 
-    response = client.chat.completions.create(
-                model=model,
-                messages=messages,
-                temperature=temp)
-    
+        if 'gpt' in model:
+            client = OpenAI(api_key=openai_key)
+        else:
+            client = OpenAI(api_key=llama_key, base_url = "https://api.llama-api.com")
+
+        response = client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=temp)
+        prompt_tokens = response.usage.prompt_tokens
+        completion_tokens = response.usage.completion_tokens
+        choice = response.choices[0]
+        content = choice.message.content
+        finish_reason = choice.finish_reason
+
     if savename is not None:
         # read json in savename
         # if file exists
@@ -182,29 +207,27 @@ def get_llm_response(model, messages, savename=None, temp=DEFAULT_TEMPERATURE, v
         else:
             data = {"prompt_tokens": 0, "completion_tokens": 0}
 
-        data["prompt_tokens"] += response.usage.prompt_tokens
-        data["completion_tokens"] += response.usage.completion_tokens
+        data["prompt_tokens"] += prompt_tokens
+        data["completion_tokens"] += completion_tokens
 
         # save to savename
         with open(savename, 'w') as f:
             json.dump(data, f)
 
-    response = response.choices[0]
-    finish_reason = response.finish_reason
     if finish_reason != 'stop':
         if 'gpt' in model:
-            raise Exception(f'Finish reason: {finish_reason}\nResponse: {response.message.content}')
+            raise Exception(f'Finish reason: {finish_reason}\nResponse: {content}')
         else:  # for some reason Llama produces max_token a lot even though the full answer is coming out
-            print(f'Warning: finish reason was {finish_reason}\nResponse: {response.message.content}')
-        
+            print(f'Warning: finish reason was {finish_reason}\nResponse: {content}')
+
     if verbose:
         for m in messages:
             print(m['role'].upper())
             print(m['content'])
             print()
         print('\nRESPONSE')
-        print(response.message.content)
-    return response.message.content
+        print(content)
+    return content
         
 
 def repeat_prompt_until_parsed(model, system_prompt, user_prompt, parse_method,
