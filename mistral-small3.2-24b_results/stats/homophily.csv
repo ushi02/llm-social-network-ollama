@@ -1,0 +1,31 @@
+graph_nr,demo,_metric_value,save_name,metric_name
+0.0,gender,1.1046105952444851,sequential_ollama/mistral-small3.2:24b,same_ratio
+0.0,race/ethnicity,1.053763440860215,sequential_ollama/mistral-small3.2:24b,same_ratio
+0.0,age,1.0954070132653437,sequential_ollama/mistral-small3.2:24b,same_ratio
+0.0,religion,1.2032154673283706,sequential_ollama/mistral-small3.2:24b,same_ratio
+0.0,political affiliation,1.9900524215912547,sequential_ollama/mistral-small3.2:24b,same_ratio
+0.0,gender,0.8992452440033085,sequential_ollama/mistral-small3.2:24b,cross_ratio
+0.0,race/ethnicity,0.9516545803117447,sequential_ollama/mistral-small3.2:24b,cross_ratio
+0.0,age,0.9034534183294803,sequential_ollama/mistral-small3.2:24b,cross_ratio
+0.0,religion,0.8955035421401704,sequential_ollama/mistral-small3.2:24b,cross_ratio
+0.0,political affiliation,0.04643989523021781,sequential_ollama/mistral-small3.2:24b,cross_ratio
+1.0,gender,1.0617763977749775,sequential_ollama/mistral-small3.2:24b,same_ratio
+1.0,race/ethnicity,1.029523156831626,sequential_ollama/mistral-small3.2:24b,same_ratio
+1.0,age,1.1536830148528376,sequential_ollama/mistral-small3.2:24b,same_ratio
+1.0,religion,1.047282346314773,sequential_ollama/mistral-small3.2:24b,same_ratio
+1.0,political affiliation,2.038269550748752,sequential_ollama/mistral-small3.2:24b,same_ratio
+1.0,gender,0.9405006168866001,sequential_ollama/mistral-small3.2:24b,cross_ratio
+1.0,race/ethnicity,0.9734520450196231,sequential_ollama/mistral-small3.2:24b,cross_ratio
+1.0,age,0.8721861184566847,sequential_ollama/mistral-small3.2:24b,cross_ratio
+1.0,religion,0.9756867044907965,sequential_ollama/mistral-small3.2:24b,cross_ratio
+1.0,political affiliation,0.0,sequential_ollama/mistral-small3.2:24b,cross_ratio
+2.0,gender,1.1063580219154263,sequential_ollama/mistral-small3.2:24b,same_ratio
+2.0,race/ethnicity,1.065548306927617,sequential_ollama/mistral-small3.2:24b,same_ratio
+2.0,age,1.175660196278753,sequential_ollama/mistral-small3.2:24b,same_ratio
+2.0,religion,1.1540085758835759,sequential_ollama/mistral-small3.2:24b,same_ratio
+2.0,political affiliation,2.033678853562381,sequential_ollama/mistral-small3.2:24b,same_ratio
+2.0,gender,0.8975622256872257,sequential_ollama/mistral-small3.2:24b,cross_ratio
+2.0,race/ethnicity,0.9410573364061736,sequential_ollama/mistral-small3.2:24b,cross_ratio
+2.0,age,0.8878628856389346,sequential_ollama/mistral-small3.2:24b,cross_ratio
+2.0,religion,0.9208064677780375,sequential_ollama/mistral-small3.2:24b,cross_ratio
+2.0,political affiliation,0.004421488796488796,sequential_ollama/mistral-small3.2:24b,cross_ratio

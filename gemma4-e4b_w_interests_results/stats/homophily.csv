@@ -1,0 +1,31 @@
+graph_nr,demo,_metric_value,save_name,metric_name
+0.0,gender,1.2413521324108943,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+0.0,race/ethnicity,1.1195553539019962,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+0.0,age,1.5667390124796527,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+0.0,religion,1.4280743927125505,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+0.0,political affiliation,2.0229442157807163,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+0.0,gender,0.7675438596491228,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+0.0,race/ethnicity,0.8924928600571196,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+0.0,age,0.7094276676983554,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+0.0,religion,0.7798776917572051,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+0.0,political affiliation,0.014760458839406207,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+1.0,gender,1.103476963681221,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+1.0,race/ethnicity,1.1434304399524375,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+1.0,age,1.6257850456215193,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+1.0,religion,1.289580570291777,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+1.0,political affiliation,2.0031269722875664,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+1.0,gender,0.9003370910698496,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+1.0,race/ethnicity,0.8710237904303662,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+1.0,age,0.6582814402962637,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+1.0,religion,0.8510933037807424,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+1.0,political affiliation,0.0338472590627763,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+2.0,gender,1.1884372950619762,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+2.0,race/ethnicity,1.0113164101988092,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+2.0,age,1.5220457369287081,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+2.0,religion,1.227762465547482,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+2.0,political affiliation,2.0183516072560934,sequential_ollama_gemma4-e4b_w_interests,same_ratio
+2.0,gender,0.818508310364988,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+2.0,race/ethnicity,0.9898240032320784,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+2.0,age,0.6806384062623037,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+2.0,religion,0.8828811054786744,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
+2.0,political affiliation,0.0191837885241794,sequential_ollama_gemma4-e4b_w_interests,cross_ratio
