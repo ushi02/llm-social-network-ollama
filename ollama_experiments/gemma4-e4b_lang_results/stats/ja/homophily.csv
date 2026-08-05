@@ -29,3 +29,73 @@ graph_nr,demo,_metric_value,save_name,metric_name
 2.0,age,0.7061942447533143,sequential_ollama/gemma4:e4b_ja,cross_ratio
 2.0,religion,0.5634288671055279,sequential_ollama/gemma4:e4b_ja,cross_ratio
 2.0,political affiliation,0.015218147485589346,sequential_ollama/gemma4:e4b_ja,cross_ratio
+3.0,gender,1.4143094841930117,sequential_ollama/gemma4:e4b_ja,same_ratio
+3.0,race/ethnicity,1.543103448275862,sequential_ollama/gemma4:e4b_ja,same_ratio
+3.0,age,1.288659793814433,sequential_ollama/gemma4:e4b_ja,same_ratio
+3.0,religion,1.2860576923076923,sequential_ollama/gemma4:e4b_ja,same_ratio
+3.0,political affiliation,1.9883527454242929,sequential_ollama/gemma4:e4b_ja,same_ratio
+3.0,gender,0.6009615384615384,sequential_ollama/gemma4:e4b_ja,cross_ratio
+3.0,race/ethnicity,0.5116279069767442,sequential_ollama/gemma4:e4b_ja,cross_ratio
+3.0,age,0.773024867150113,sequential_ollama/gemma4:e4b_ja,cross_ratio
+3.0,religion,0.8529048207663782,sequential_ollama/gemma4:e4b_ja,cross_ratio
+3.0,political affiliation,0.04807692307692307,sequential_ollama/gemma4:e4b_ja,cross_ratio
+4.0,gender,1.3345022140081406,sequential_ollama/gemma4:e4b_ja,same_ratio
+4.0,race/ethnicity,1.1489104796136134,sequential_ollama/gemma4:e4b_ja,same_ratio
+4.0,age,1.206666890538075,sequential_ollama/gemma4:e4b_ja,same_ratio
+4.0,religion,1.2373543598095715,sequential_ollama/gemma4:e4b_ja,same_ratio
+4.0,political affiliation,2.0316302362511993,sequential_ollama/gemma4:e4b_ja,same_ratio
+4.0,gender,0.6778271945210056,sequential_ollama/gemma4:e4b_ja,cross_ratio
+4.0,race/ethnicity,0.8660960028280685,sequential_ollama/gemma4:e4b_ja,cross_ratio
+4.0,age,0.828598183733782,sequential_ollama/gemma4:e4b_ja,cross_ratio
+4.0,religion,0.8779488088000226,sequential_ollama/gemma4:e4b_ja,cross_ratio
+4.0,political affiliation,0.006394596174726468,sequential_ollama/gemma4:e4b_ja,cross_ratio
+5.0,gender,1.2474209650582362,sequential_ollama/gemma4:e4b_ja,same_ratio
+5.0,race/ethnicity,1.2756896551724137,sequential_ollama/gemma4:e4b_ja,same_ratio
+5.0,age,1.3807560137457047,sequential_ollama/gemma4:e4b_ja,same_ratio
+5.0,religion,1.1778846153846154,sequential_ollama/gemma4:e4b_ja,same_ratio
+5.0,political affiliation,2.0301164725457572,sequential_ollama/gemma4:e4b_ja,same_ratio
+5.0,gender,0.761698717948718,sequential_ollama/gemma4:e4b_ja,cross_ratio
+5.0,race/ethnicity,0.7520930232558141,sequential_ollama/gemma4:e4b_ja,cross_ratio
+5.0,age,0.7916590822348141,sequential_ollama/gemma4:e4b_ja,cross_ratio
+5.0,religion,0.9085290482076637,sequential_ollama/gemma4:e4b_ja,cross_ratio
+5.0,political affiliation,0.007852564102564102,sequential_ollama/gemma4:e4b_ja,cross_ratio
+6.0,gender,1.2983994647118384,sequential_ollama/gemma4:e4b_ja,same_ratio
+6.0,race/ethnicity,1.3529267394772366,sequential_ollama/gemma4:e4b_ja,same_ratio
+6.0,age,1.1834880336549631,sequential_ollama/gemma4:e4b_ja,same_ratio
+6.0,religion,1.2994456611004654,sequential_ollama/gemma4:e4b_ja,same_ratio
+6.0,political affiliation,1.9657332678039567,sequential_ollama/gemma4:e4b_ja,same_ratio
+6.0,gender,0.7125992335067068,sequential_ollama/gemma4:e4b_ja,cross_ratio
+6.0,race/ethnicity,0.682639521090237,sequential_ollama/gemma4:e4b_ja,cross_ratio
+6.0,age,0.7969870049976278,sequential_ollama/gemma4:e4b_ja,cross_ratio
+6.0,religion,0.8460205253179311,sequential_ollama/gemma4:e4b_ja,cross_ratio
+6.0,political affiliation,0.06986266995163792,sequential_ollama/gemma4:e4b_ja,cross_ratio
+7.0,gender,1.2050147029583818,sequential_ollama/gemma4:e4b_ja,same_ratio
+7.0,race/ethnicity,1.4146877033181522,sequential_ollama/gemma4:e4b_ja,same_ratio
+7.0,age,1.0987378158162053,sequential_ollama/gemma4:e4b_ja,same_ratio
+7.0,religion,1.166772496371553,sequential_ollama/gemma4:e4b_ja,same_ratio
+7.0,political affiliation,2.038269550748752,sequential_ollama/gemma4:e4b_ja,same_ratio
+7.0,gender,0.802541928721174,sequential_ollama/gemma4:e4b_ja,cross_ratio
+7.0,race/ethnicity,0.6271025303495685,sequential_ollama/gemma4:e4b_ja,cross_ratio
+7.0,age,0.8715264640815525,sequential_ollama/gemma4:e4b_ja,cross_ratio
+7.0,religion,0.914243067378781,sequential_ollama/gemma4:e4b_ja,cross_ratio
+7.0,political affiliation,0.0,sequential_ollama/gemma4:e4b_ja,cross_ratio
+8.0,gender,1.2698484421597656,sequential_ollama/gemma4:e4b_ja,same_ratio
+8.0,race/ethnicity,1.3495648341963202,sequential_ollama/gemma4:e4b_ja,same_ratio
+8.0,age,1.1700866242877377,sequential_ollama/gemma4:e4b_ja,same_ratio
+8.0,religion,1.1101468419759155,sequential_ollama/gemma4:e4b_ja,same_ratio
+8.0,political affiliation,2.018733420869371,sequential_ollama/gemma4:e4b_ja,same_ratio
+8.0,gender,0.7400978946506104,sequential_ollama/gemma4:e4b_ja,cross_ratio
+8.0,race/ethnicity,0.6856626297149367,sequential_ollama/gemma4:e4b_ja,cross_ratio
+8.0,age,0.861663527370036,sequential_ollama/gemma4:e4b_ja,cross_ratio
+8.0,religion,0.9433608328034847,sequential_ollama/gemma4:e4b_ja,cross_ratio
+8.0,political affiliation,0.018816048169083312,sequential_ollama/gemma4:e4b_ja,cross_ratio
+9.0,gender,1.3192909078476514,sequential_ollama/gemma4:e4b_ja,same_ratio
+9.0,race/ethnicity,1.497254369390647,sequential_ollama/gemma4:e4b_ja,same_ratio
+9.0,age,1.2109871487078097,sequential_ollama/gemma4:e4b_ja,same_ratio
+9.0,religion,1.2202400553213908,sequential_ollama/gemma4:e4b_ja,same_ratio
+9.0,political affiliation,2.0033676748797666,sequential_ollama/gemma4:e4b_ja,same_ratio
+9.0,gender,0.6924778275377591,sequential_ollama/gemma4:e4b_ja,cross_ratio
+9.0,race/ethnicity,0.5528565360518212,sequential_ollama/gemma4:e4b_ja,cross_ratio
+9.0,age,0.8190633404291173,sequential_ollama/gemma4:e4b_ja,cross_ratio
+9.0,religion,0.88674924225748,sequential_ollama/gemma4:e4b_ja,cross_ratio
+9.0,political affiliation,0.033615428521250434,sequential_ollama/gemma4:e4b_ja,cross_ratio
