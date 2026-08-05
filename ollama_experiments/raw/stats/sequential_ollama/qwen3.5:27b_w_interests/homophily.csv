@@ -29,3 +29,73 @@ graph_nr,demo,_metric_value,save_name,metric_name
 2.0,age,0.8008565464424205,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
 2.0,religion,0.9563463665343829,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
 2.0,political affiliation,0.02695388135891568,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+3.0,gender,1.0575926914262392,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+3.0,race/ethnicity,1.011202830188679,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+3.0,age,1.3601844647604229,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+3.0,religion,1.0625963806240928,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+3.0,political affiliation,1.9709681976579914,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+3.0,gender,0.9445301161103048,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+3.0,race/ethnicity,0.9899261371946761,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+3.0,age,0.7614546847969209,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+3.0,religion,0.9678119971080067,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+3.0,political affiliation,0.06482069424286405,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+4.0,gender,1.0338338346345834,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+4.0,race/ethnicity,1.005263594164456,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+4.0,age,1.3863418583135079,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+4.0,religion,1.068873659393491,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+4.0,political affiliation,1.9843730001279918,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+4.0,gender,0.9674132458086786,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+4.0,race/ethnicity,0.9952668455575433,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+4.0,age,0.7468765738166593,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+4.0,religion,0.9645841257012455,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+4.0,political affiliation,0.05190997904339251,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+5.0,gender,1.039315662015453,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+5.0,race/ethnicity,0.9567045066575623,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+5.0,age,1.354581334422102,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+5.0,religion,1.1443557216298552,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+5.0,political affiliation,2.0029529991268675,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+5.0,gender,0.9621334729626808,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+5.0,race/ethnicity,1.0389323816102543,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+5.0,age,0.7625624207704234,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+5.0,religion,0.9257701110036838,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+5.0,political affiliation,0.03401481975120589,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+6.0,gender,1.0237462449462058,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+6.0,race/ethnicity,0.970022624434389,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+6.0,age,1.32384040055356,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+6.0,religion,1.0592966846501914,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+6.0,political affiliation,1.9967663246022842,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+6.0,gender,0.9771290172873883,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+6.0,race/ethnicity,1.0269563997334175,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+6.0,age,0.7687697916474315,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+6.0,religion,0.969508750538344,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+6.0,political affiliation,0.039973459798120434,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+7.0,gender,1.0058301438420736,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+7.0,race/ethnicity,0.9705591068695417,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+7.0,age,1.4508357783101398,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+7.0,religion,1.168658365133561,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+7.0,political affiliation,2.001016582458305,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+7.0,gender,0.9943847492803106,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+7.0,race/ethnicity,1.026473981419637,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+7.0,age,0.7015500450236608,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+7.0,religion,0.913273325221803,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+7.0,political affiliation,0.03587986208743389,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+8.0,gender,1.023942014880859,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+8.0,race/ethnicity,1.011202830188679,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+8.0,age,1.3502561110030473,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+8.0,religion,1.1042668269230769,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+8.0,political affiliation,1.9757754371644742,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+8.0,gender,0.9769404632317368,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+8.0,race/ethnicity,0.9899261371946761,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+8.0,age,0.7631511417085772,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+8.0,religion,0.9463844252163164,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+8.0,political affiliation,0.06019064465408805,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+9.0,gender,1.0101158835569037,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+9.0,race/ethnicity,0.9392165090021362,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+9.0,age,1.2945518961165343,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+9.0,religion,1.0554054628999319,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+9.0,political affiliation,1.907495619395403,sequential_ollama/qwen3.5:27b_w_interests,same_ratio
+9.0,gender,0.9902569775357386,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+9.0,race/ethnicity,1.054658022912808,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+9.0,age,0.8151775718368892,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+9.0,religion,0.9715096754432982,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
+9.0,political affiliation,0.12595373837077378,sequential_ollama/qwen3.5:27b_w_interests,cross_ratio
