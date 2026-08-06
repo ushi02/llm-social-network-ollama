@@ -15,7 +15,7 @@
 1. **好消息**：LLM（论文里用 GPT-3.5/GPT-4）生成的网络，在很多结构性指标上（度数分布、聚类系数、社区结构等）跟真实社交网络相当接近。
 2. **坏消息**：LLM 生成的网络**系统性地高估了政治立场上的同质性**（political homophily）——也就是说，LLM 扮演的人几乎只跟同党派的人交朋友，比真实世界中人们的政治同质性明显更极端。这个偏差在其他人口统计维度（年龄、性别、种族、宗教）上不明显，唯独政治立场特别突出。
 
-这个 fork 在原论文基础上加了 Ollama 支持，方便跑本地/自托管的开源模型（`gemma4`、`qwen3.5`、`mistral` 等），看看这个"政治同质性被高估"的现象是不是 GPT 系列特有的，还是更广泛存在于各种 LLM 里。目前仓库里的实验结果（见第 6 节）显示：**换成更小的开源模型后，这个偏差不但复现了，甚至比 GPT-3.5 更严重**。
+这个 fork 在原论文基础上加了 Ollama 支持，方便跑本地/自托管的开源模型（`gemma4`、`qwen3.5`、`mistral` 等），看看这个"政治同质性被高估"的现象是不是 GPT 系列特有的，还是更广泛存在于各种 LLM 里。目前仓库里的实验结果（见第 4 节）显示：**换成更小的开源模型后，这个偏差不但复现了，甚至比 GPT-3.5 更严重**。
 
 ## 2. 整体流程：三步走
 
@@ -78,7 +78,7 @@ python generate_networks.py sequential --model ollama/gemma4:e4b \
 | `--include_reason` | 让 LLM 除了给出朋友列表，还要给出交朋友的理由（存成 `_reasons.json`，用来做质性分析） |
 | `--mean_choices` | 限制每人一次最多选几个朋友（指数分布采样，不设置则不限制） |
 | `--lang` | `en`/`zh`/`ja`，prompt 语言（本仓库额外加的功能，原论文只有英文） |
-| `--num_networks` / `--start_seed` | 生成几个网络（几个随机种子），用于估计结果的方差（论文里 GPT-3.5 用 n=30，本仓库大部分开源模型实验因为跑得慢，用 n=3） |
+| `--num_networks` / `--start_seed` | 生成几个网络（几个随机种子），用于估计结果的方差（论文里 GPT-3.5 用 n=30；本仓库的开源模型实验大多已从 n=3 扩充到 n=10，只有 `mistral-small3.2:24b` 因为是较早/较慢的一批实验，还停留在 n=3，尚未扩充） |
 | `--temp` | 采样温度 |
 
 每次运行的产物：
@@ -151,7 +151,7 @@ cross_ratio = 实际网络中"跨类"边的占比（对 age 是平均年龄差�
 
 ## 4. 怎么读一份实验结果（以仓库里已有的为例）
 
-仓库根目录下的 `*_results/` 文件夹（`gemma4-26b_w_reason_results`、`gemma4-e4b_w_interests_results`、`gemma4-e4b_lang_results`、`mistral-small3.2-24b_results`、`qwen3.5-9b_w_interests_results`）是已经跑完并整理好的实验，每个文件夹都有自己的 `README.md`，结构一致：
+`ollama_experiments/` 下的 `*_results/` 文件夹是已经跑完并整理好的实验，每个文件夹都有自己的 `README.md`，结构一致：
 
 ```
 networks/   生成的网络原始文件（.adj），以及 --include_reason 的话还有 _reasons.json
@@ -161,6 +161,19 @@ README.md   人话版的结果总结：跟 GPT-3.5 基线对比的表格 + 结�
 ```
 
 想知道"这个模型生成的网络政治同质性有多夸张"，直接打开对应文件夹的 `README.md` 看 `political affiliation` 那一行的 `same_ratio`/`cross_ratio` 就行；想自己重新算或者做别的对比，去 `stats/homophily.csv` 里筛数据。
+
+目前一共 6 组实验，political affiliation 的 `cross_ratio` 一览（GPT-3.5 原论文基线约 0.30，越接近 0 说明模型越只跟同党派的人交朋友）：
+
+| 文件夹 | 模型 | 条件 | n | political cross_ratio |
+|---|---|---|---|---|
+| [`gemma4-e4b_w_interests_results`](gemma4-e4b_w_interests_results/README.md) | gemma4:e4b | w_interests | 10 | 0.068 |
+| [`gemma4-e4b_lang_results`](gemma4-e4b_lang_results/README.md) | gemma4:e4b | bare，en/zh/ja 三语言对比 | 10（每语言） | 0.025~0.029（三语言几乎一致） |
+| [`gemma4-26b_w_reason_results`](gemma4-26b_w_reason_results/README.md) | gemma4:26b | w_reason（附带朋友选择理由） | 10 | 0.012 |
+| [`qwen3.5-9b_w_interests_results`](qwen3.5-9b_w_interests_results/README.md) | qwen3.5:9b | w_interests | 10 | 0.092 |
+| [`qwen3.5-27b_w_interests_results`](qwen3.5-27b_w_interests_results/README.md) | qwen3.5:27b | w_interests | 10 | 0.048（比 9b 更极端） |
+| [`mistral-small3.2-24b_results`](mistral-small3.2-24b_results/README.md) | mistral-small3.2:24b | bare | 3（尚未扩充） | 0.017 |
+
+六组实验方向完全一致：不管模型系列、大小、prompt 语言还是条件（bare/w_interests/w_reason），political affiliation 都是唯一一个明显比 GPT-3.5 更极端的维度，其余四个人口统计维度上开源模型反而普遍比 GPT-3.5 更接近随机基线。模型变大（qwen 9b→27b）没有缓解这个偏差，反而更极端。
 
 ## 5. 参考
 
